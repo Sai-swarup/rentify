@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Seller Dashboard</title>
+</head>
+<body>
+    <h2>Welcome, Seller</h2>
+    <form method="POST">
+        <label>Area:</label><input type="text" name="area" required><br>
+        <label>Bedrooms:</label><input type="number" name="bedrooms" required><br>
+        <label>Bathrooms:</label><input type="number" name="bathrooms" required><br>
+        <label>Nearby:</label><input type="text" name="nearby" required><br>
+        <label>Description:</label><input type="text" name="description" required><br>
+        <input type="submit" value="Post Property">
+    </form>
+    <h3>Your Properties</h3>
+    <ul>
+        {% for property in properties %}
+            <li>{{ property.area }} - {{ property.bedrooms }} BR - {{ property.bathrooms }} BA - {{ property.nearby }} - {{ property.description }}</li>
+        {% endfor %}
+    </ul>
+    <a href="{{ url_for('logout') }}">Logout</a>
+</body>
+</html>

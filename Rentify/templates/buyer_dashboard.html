@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Buyer Dashboard</title>
+</head>
+<body>
+    <h2>Available Properties</h2>
+    <ul>
+        {% for property in properties %}
+            <li>{{ property.area }} - {{ property.bedrooms }} BR - {{ property.bathrooms }} BA - {{ property.nearby }} - {{ property.description }}
+            <form method="POST" action="{{ url_for('show_interest', property_id=property.id) }}">
+                <input type="submit" value="I'm Interested">
+            </form></li>
+        {% endfor %}
+    </ul>
+    <a href="{{ url_for('logout') }}">Logout</a>
+</body>
+</
